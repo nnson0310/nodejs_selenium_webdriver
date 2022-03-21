@@ -4,7 +4,7 @@
   "description": "this is a demo of nodejs and automation test",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "testcafe chrome"
   },
   "type": "module",
   "repository": {
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "chromedriver": "^99.0.0",
-    "mocha": "^9.2.2"
+    "mocha": "^9.2.2",
+    "testcafe": "^1.18.4"
   }
 }
