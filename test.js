@@ -1,14 +1,15 @@
-import webDriver from 'selenium-webdriver';
-import chrome from 'selenium-webdriver/chrome.js';
-import chromedriver from 'chromedriver';
-import assert from 'assert';
+import { Selector } from 'testcafe'; // first import testcafe selectors
 
-let pageUrl = 'https://www.lambdatest.com';
+fixture `Getting Started`// declare the fixture
+    .page `https://devexpress.github.io/testcafe/example`;  // specify the start page
 
-(async () => {
-    let driver = new webDriver.Builder().withCapabilities(webDriver.Capabilities.chrome()).build();
-    await driver.get(pageUrl);
-    let pageTitle = await driver.getTitle();
-    await assert.equal(pageTitle, 'Most Powerful Cross Browser Testing Tool Online | LambdaTest');
-    await driver.quit();
-})();
+
+//then create a test and place your code there
+test('My first test', async t => {
+    await t
+        .typeText('#developer-name', 'John Smith')
+        .click('#submit-button')
+
+        // Use the assertion to check if the actual header text is equal to the expected one
+        .expect(Selector('#article-header').innerText).eql('Thank you, John Smith!');
+});
